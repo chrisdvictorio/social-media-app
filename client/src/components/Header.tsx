@@ -30,7 +30,7 @@ import { Button } from "./ui/button";
 
 const Header = () => {
   return (
-    <div className="flex items-center justify-between max-w-7xl mx-auto h-14">
+    <div className="max-w-7xl mx-auto h-14 flex items-center justify-between ">
       <Link to={"/"}>
         <p>LOGO HERE</p>
       </Link>
