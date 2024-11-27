@@ -31,10 +31,10 @@ const Feed = () => {
     <Tabs defaultValue="account" className="space-y-4">
       <TabsList className="w-full">
         <TabsTrigger value="account" className="w-full">
-          Account
+          For You
         </TabsTrigger>
         <TabsTrigger value="password" className="w-full">
-          Password
+          Friends
         </TabsTrigger>
       </TabsList>
       <TabsContent value="account">
