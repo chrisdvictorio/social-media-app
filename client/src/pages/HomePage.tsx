@@ -5,7 +5,7 @@ import { Calendar } from "@/components/ui/calendar";
 import Feed from "@/components/Feed";
 import FriendRequests from "@/components/FriendRequests";
 import ProfileCard from "@/components/ProfileCard";
-import FriendsList from "@/components/FriendsList";
+import YourFriends from "@/components/YourFriends";
 
 const HomePage = () => {
   return (
@@ -24,7 +24,7 @@ const HomePage = () => {
       <div className="hidden md:flex flex-col w-[40%] space-y-4">
         <FriendRequests />
         <BirthdayCard />
-        <FriendsList />
+        <YourFriends />
       </div>
     </div>
   );

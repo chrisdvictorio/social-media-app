@@ -14,7 +14,7 @@ const BirthdayCard = () => {
               src="bethdoe.png"
               className="object-cover rounded-full h-9 w-9"
             />
-            <p className="text-sm font-semibold">Max 15 Characters</p>
+            <p className="text-sm font-medium">Max 15 Characters</p>
           </div>
           <Button className="h-0 w-0 p-3">
             <PartyPopper />
@@ -27,7 +27,7 @@ const BirthdayCard = () => {
               src="bethdoe.png"
               className="object-cover rounded-full h-9 w-9"
             />
-            <p className="text-sm font-semibold">Max 15 Characters</p>
+            <p className="text-sm font-medium">Max 15 Characters</p>
           </div>
           <Button className="h-0 w-0 p-3">
             <PartyPopper />
