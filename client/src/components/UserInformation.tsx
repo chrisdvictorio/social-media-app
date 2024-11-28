@@ -1,4 +1,4 @@
-import { Cake, CalendarDays, MapPin, UserPlus } from "lucide-react";
+import { Cake, CalendarDays, MapPin, Settings } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 
@@ -38,8 +38,8 @@ const UserInformation = () => {
       <div className="flex flex-col gap-4">
         <Separator />
         <Button className="w-full">
-          <UserPlus />
-          <p>Add Friend/Edit Profile</p>
+          <Settings />
+          <p>Edit Profile</p>
         </Button>
       </div>
     </div>

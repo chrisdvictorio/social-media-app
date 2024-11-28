@@ -1,3 +1,4 @@
+import { Pencil, Heart, Users, UserPlus } from "lucide-react";
 import { Button } from "./ui/button";
 import { Separator } from "./ui/separator";
 
@@ -13,25 +14,31 @@ const UserProfile = () => {
         <img
           alt=""
           src="bethdoe.png"
-          className="object-cover rounded-full h-24 w-24 absolute -bottom-10 left-10 border-2"
+          className="object-cover rounded-full h-24 w-24 absolute -bottom-10 left-4 sm:left-4 border-2"
         />
       </div>
-      <div className="px-4 h-14 ml-32 flex items-center justify-between">
-        <p className="underline font-semibold">ishmimi</p>
-        <div className="flex items-center gap-2">
-          <p>
-            <span className="font-semibold">0</span> Posts
-          </p>
+      <div className="pl-32 pr-4 h-14 flex items-center justify-between gap-2">
+        <p className="text-sm font-semibold">@max 15 characters</p>
+        <div className="hidden sm:flex items-center gap-2">
+          <div className="flex items-center gap-1">
+            <Pencil size={16} />
+            <p className="text-sm font-semibold">256</p>
+          </div>
           <Separator orientation="vertical" className="h-6" />
-          <p>
-            <span className="font-semibold">0</span> Likes
-          </p>
+          <div className="flex items-center gap-1">
+            <Heart size={16} />
+            <p className="text-sm font-semibold">256</p>
+          </div>
           <Separator orientation="vertical" className="h-6" />
-          <p>
-            <span className="font-semibold">0</span> Friends
-          </p>
+          <div className="flex items-center gap-1">
+            <Users size={16} />
+            <p className="text-sm font-semibold">256</p>
+          </div>
         </div>
-        <Button size={"sm"}>Add Friend</Button>
+        <Button size={"sm"}>
+          <UserPlus />
+          <p>Request Sent</p>
+        </Button>
       </div>
     </div>
   );

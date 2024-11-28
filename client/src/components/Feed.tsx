@@ -108,19 +108,25 @@ const Feed = () => {
           <img alt="" src="lifestyle.jpg" />
           <Separator />
           <div className="px-4 flex items-center justify-between">
-            <div className="space-x-2">
+            <div className="flex items-center gap-2">
               <Button variant={"outline"} className="border">
                 <Heart />
-                <p>Hearts</p>
+                <p>
+                  256 <span className="hidden sm:inline">Hearts</span>
+                </p>
               </Button>
               <Button variant={"outline"} className="border">
                 <MessageSquare />
-                <p>Comments</p>
+                <p>
+                  256 <span className="hidden sm:inline">Comments</span>
+                </p>
               </Button>
             </div>
             <Button variant={"outline"} className="border">
               <Bookmark />
-              <p>Saved</p>
+              <p>
+                256 <span className="hidden sm:inline">Saved</span>
+              </p>
             </Button>
           </div>
           <Separator />
