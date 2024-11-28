@@ -1,6 +1,6 @@
 import { Button } from "./ui/button";
 
-const UserMedia = () => {
+const UserMediaCard = () => {
   return (
     <div className="p-4 border rounded-lg shadow-lg space-y-4">
       <div className="flex items-center justify-between">
@@ -45,4 +45,4 @@ const UserMedia = () => {
   );
 };
 
-export default UserMedia;
+export default UserMediaCard;

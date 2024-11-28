@@ -3,13 +3,13 @@ import BirthdayCard from "@/components/BirthdayCard";
 import { Calendar } from "@/components/ui/calendar";
 
 import Feed from "@/components/Feed";
-import FriendRequests from "@/components/FriendRequests";
+import FriendRequestsCard from "@/components/FriendRequestsCard";
 import ProfileCard from "@/components/ProfileCard";
-import YourFriends from "@/components/YourFriends";
+import YourFriendsCard from "@/components/YourFriendsCard";
 
 const HomePage = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 2xl:px-0 w-full flex justify-between gap-4">
+    <div className="max-w-7xl mx-auto px-4 2xl:px-0 w-full flex flex-1 gap-4 mb-4">
       <div className="hidden lg:block w-[40%] space-y-4">
         <ProfileCard />
         <Calendar
@@ -22,9 +22,9 @@ const HomePage = () => {
         <Feed />
       </div>
       <div className="hidden md:flex flex-col w-[40%] space-y-4">
-        <FriendRequests />
+        <FriendRequestsCard />
         <BirthdayCard />
-        <YourFriends />
+        <YourFriendsCard />
       </div>
     </div>
   );

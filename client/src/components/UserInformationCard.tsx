@@ -2,7 +2,7 @@ import { Cake, CalendarDays, MapPin, Settings } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 
-const UserInformation = () => {
+const UserInformationCard = () => {
   return (
     <div className="p-4 border rounded-lg shadow-lg space-y-4">
       <h2 className="text-sm">User Information</h2>
@@ -46,4 +46,4 @@ const UserInformation = () => {
   );
 };
 
-export default UserInformation;
+export default UserInformationCard;

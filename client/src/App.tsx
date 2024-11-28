@@ -12,7 +12,7 @@ import ProfilePage from "./pages/ProfilePage";
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen space-y-4">
+    <div className="flex flex-col min-h-screen gap-4">
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <header className="sticky top-0 z-10 border-b px-4 2xl:px-0">
           <Header />

@@ -1,11 +1,12 @@
-import { Mail, User } from "lucide-react";
 import { Button } from "./ui/button";
 
-const YourFriends = () => {
+import { Check, X } from "lucide-react";
+
+const FriendRequestsCard = () => {
   return (
-    <div className="p-4 border rounded-lg shadow-lg h-full space-y-4">
+    <div className="p-4 border rounded-lg shadow-lg space-y-4">
       <div className="flex items-center justify-between">
-        <h2 className="text-sm">Your Friends</h2>
+        <h2 className="text-sm">Friend Requests</h2>
         <Button variant={"link"} size={"sm"} className="h-0 w-0 px-4">
           View all
         </Button>
@@ -18,16 +19,14 @@ const YourFriends = () => {
               src="bethdoe.png"
               className="object-cover rounded-full h-9 w-9"
             />
-            <div className="-space-y-0.5">
-              <p className="text-sm font-medium">Max 15 Characters</p>
-            </div>
+            <p className="text-sm font-medium">Max 15 Characters</p>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant={"secondary"} className="h-0 w-0 p-3 border">
-              <User />
+            <Button className="h-0 w-0 p-3">
+              <Check />
             </Button>
             <Button variant={"secondary"} className="h-0 w-0 p-3 border">
-              <Mail />
+              <X />
             </Button>
           </div>
         </div>
@@ -38,15 +37,14 @@ const YourFriends = () => {
               src="bethdoe.png"
               className="object-cover rounded-full h-9 w-9"
             />
-
             <p className="text-sm font-medium">Max 15 Characters</p>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant={"secondary"} className="h-0 w-0 p-3 border">
-              <User />
+            <Button className="h-0 w-0 p-3">
+              <Check />
             </Button>
             <Button variant={"secondary"} className="h-0 w-0 p-3 border">
-              <Mail />
+              <X />
             </Button>
           </div>
         </div>
@@ -55,4 +53,4 @@ const YourFriends = () => {
   );
 };
 
-export default YourFriends;
+export default FriendRequestsCard;

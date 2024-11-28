@@ -37,7 +37,7 @@ const Feed = () => {
           Friends
         </TabsTrigger>
       </TabsList>
-      <TabsContent value="account">
+      <TabsContent value="account" className="space-y-4">
         <div className="py-4 border rounded-lg shadow-lg space-y-4">
           <div className="px-4 flex items-center justify-between">
             <HoverCard>
