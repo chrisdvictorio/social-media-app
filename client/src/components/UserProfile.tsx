@@ -14,7 +14,7 @@ const UserProfile = () => {
         <img
           alt=""
           src="bethdoe.png"
-          className="object-cover rounded-full h-24 w-24 absolute -bottom-10 left-4 sm:left-4 border-2"
+          className="object-cover rounded-full h-24 w-24 absolute -bottom-10 left-4 border-2"
         />
       </div>
       <div className="pl-32 pr-4 h-14 flex items-center justify-between gap-2">

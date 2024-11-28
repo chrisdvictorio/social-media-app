@@ -18,7 +18,7 @@ const ProfilePage = () => {
         <UserMediaCard />
       </div>
       <div className="w-full">
-        <div className="hidden space-y-4">
+        <div className="space-y-4">
           <UserProfile />
           <Feed />
         </div>

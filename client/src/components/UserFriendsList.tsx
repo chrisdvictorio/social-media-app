@@ -4,7 +4,7 @@ import { Input } from "./ui/input";
 
 const UserFriendsList = () => {
   return (
-    <div className="p-4 border rounded-lg shadow-lg space-y-4">
+    <div className="hidden p-4 border rounded-lg shadow-lg space-y-4">
       <h2 className="w-full">(max 15 characters's) Friends</h2>
       <Input className="w-full" placeholder="Search User" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
