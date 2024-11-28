@@ -2,10 +2,11 @@ import BirthdayCard from "@/components/BirthdayCard";
 import Feed from "@/components/Feed";
 import FriendRequestsCard from "@/components/FriendRequestsCard";
 import UserFriendsListCard from "@/components/UserFriendsListCard";
-import ProfileFriendsList from "@/components/ProfileFriendsList";
+import UserFriendsList from "@/components/UserFriendsList";
 import UserInformationCard from "@/components/UserInformationCard";
 import UserMediaCard from "@/components/UserMediaCard";
 import UserProfile from "@/components/UserProfile";
+import UserMedia from "@/components/UserMedia";
 
 const ProfilePage = () => {
   return (
@@ -20,7 +21,8 @@ const ProfilePage = () => {
           <UserProfile />
           <Feed />
         </div>
-        <ProfileFriendsList />
+        <UserFriendsList />
+        <UserMedia />
       </div>
       <div className="hidden lg:block w-[40%] space-y-4">
         <FriendRequestsCard />
