@@ -7,6 +7,7 @@ import UserInformationCard from "@/components/UserInformationCard";
 import UserMediaCard from "@/components/UserMediaCard";
 import UserProfile from "@/components/UserProfile";
 import UserMedia from "@/components/UserMedia";
+import FriendRequests from "@/components/FriendRequests";
 
 const ProfilePage = () => {
   return (
@@ -23,6 +24,7 @@ const ProfilePage = () => {
         </div>
         <UserFriendsList />
         <UserMedia />
+        <FriendRequests />
       </div>
       <div className="hidden lg:block w-[40%] space-y-4">
         <FriendRequestsCard />

@@ -1,11 +1,16 @@
-import { Cake, CalendarDays, MapPin, Settings } from "lucide-react";
+import { User, Cake, CalendarDays, MapPin, Settings } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 
 const UserInformationCard = () => {
   return (
     <div className="p-4 border rounded-lg shadow-lg space-y-4">
-      <h2 className="text-sm">User Information</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-sm">User Information</h2>
+        <Button className="h-0 w-0 p-[10px]">
+          <User />
+        </Button>
+      </div>
       <div>
         <p className="text-sm font-semibold">@ishmimi</p>
         <p className="text-xs">

@@ -1,11 +1,10 @@
-import { Eye, UserPlus } from "lucide-react";
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
-const UserFriendsList = () => {
+const FriendRequests = () => {
   return (
-    <div className="p-4 border rounded-lg shadow-lg space-y-4">
-      <h2 className="w-full">(max 15 characters's) Friends</h2>
+    <div className="hidden p-4 border rounded-lg shadow-lg space-y-4">
+      <h2 className="w-full">Your Friend Requests</h2>
       <Input className="w-full" placeholder="Search User" />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="p-4 flex flex-col justify-between rounded-lg gap-4 bg-[#F5F5F5] dark:bg-[#262626]">
@@ -26,16 +25,14 @@ const UserFriendsList = () => {
           </div>
           <div className="flex gap-2">
             <Button size={"sm"} className="w-full border">
-              <Eye />
-              <p>View Profile</p>
+              Confirm
             </Button>
             <Button
               size={"sm"}
               variant={"outline"}
               className="w-full border dark:hover:bg-[#202020]"
             >
-              <UserPlus />
-              <p>Add Friend</p>
+              Delete
             </Button>
           </div>
         </div>
@@ -57,16 +54,14 @@ const UserFriendsList = () => {
           </div>
           <div className="flex gap-2">
             <Button size={"sm"} className="w-full border">
-              <Eye />
-              <p>View Profile</p>
+              Confirm
             </Button>
             <Button
               size={"sm"}
               variant={"outline"}
               className="w-full border dark:hover:bg-[#202020]"
             >
-              <UserPlus />
-              <p>Add Friend</p>
+              Delete
             </Button>
           </div>
         </div>
@@ -88,16 +83,14 @@ const UserFriendsList = () => {
           </div>
           <div className="flex gap-2">
             <Button size={"sm"} className="w-full border">
-              <Eye />
-              <p>View Profile</p>
+              Confirm
             </Button>
             <Button
               size={"sm"}
               variant={"outline"}
               className="w-full border dark:hover:bg-[#202020]"
             >
-              <UserPlus />
-              <p>Add Friend</p>
+              Delete
             </Button>
           </div>
         </div>
@@ -106,4 +99,4 @@ const UserFriendsList = () => {
   );
 };
 
-export default UserFriendsList;
+export default FriendRequests;
