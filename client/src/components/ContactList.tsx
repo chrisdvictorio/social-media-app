@@ -11,7 +11,7 @@ const ContactList = () => {
       </div>
 
       <div className="px-1 space-y-2">
-        <div className="flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer hover:bg-red-200">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer hover:bg-[#F5F5F5] dark:hover:bg-[#262626]">
           <img
             alt=""
             src="bethdoe.png"
@@ -22,7 +22,7 @@ const ContactList = () => {
             <p className="text-sm">Online</p>
           </div>
         </div>
-        <div className="flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer hover:bg-red-200">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer hover:bg-[#F5F5F5] dark:hover:bg-[#262626]">
           <img
             alt=""
             src="bethdoe.png"

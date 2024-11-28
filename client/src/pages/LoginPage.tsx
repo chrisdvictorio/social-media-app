@@ -10,7 +10,7 @@ const LoginPage = () => {
         <div className="flex flex-col items-center justify-center gap-12 px-16">
           <img alt="" src="logo.png" className="object-cover rounded-lg w-56" />
           <div className="space-y-2">
-            <h2 className="text-3xl font-bold text-center">Social Media App</h2>
+            <h1 className="text-3xl font-bold text-center">Social Media App</h1>
             <p className="text-lg text-center">
               Connect and share moments with friends and family. Our platform
               lets you stay updated, send messages, and express yourself through
@@ -44,7 +44,7 @@ const LoginPage = () => {
       </div>
       <div className="flex items-center justify-center w-full rounded-lg">
         <div className="w-[28rem] space-y-5">
-          <h2 className="text-lg font-semibold text-center">
+          <h2 className="text-2xl font-semibold text-center">
             Login to your Account
           </h2>
           <form className="space-y-5">
@@ -79,7 +79,7 @@ const LoginPage = () => {
               <hr className="flex-grow border-t" />
             </div>
             <Link to="/register" className="block w-full">
-              <Button variant="outline" className="w-full">
+              <Button variant={"secondary"} className="w-full border">
                 Create an Account
               </Button>
             </Link>
