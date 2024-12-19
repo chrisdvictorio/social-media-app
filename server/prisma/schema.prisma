@@ -19,10 +19,10 @@ model User {
   email String @unique
   password String
   bio String? @default("Hello I'm a new User 👋")
-  avatar String?
-  cover String?
+  avatar String? @default("https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg")
+  cover String? @default("https://flowbite.com/docs/images/examples/image-1@2x.jpg")
   country String
-  birthday DateTime
+  birthday String
   friends1 Friend[] @relation("UserFriends1")
   friends2 Friend[] @relation("UserFriends2")
   sentRequests FriendRequest[] @relation("RequestsSent")
@@ -30,17 +30,23 @@ model User {
   posts Post[]
   comments Comment[]
   likes Like[]
-  notifications Notification[]
+  bookmarks Bookmark[]
+  sentNotifications Notification[] @relation("NotificationsSent")
+  receivedNotifications Notification[] @relation("NotificationsReceived")
+  conversations Conversation[] @relation("ConversationParticipants")
+  messages Message[]
+  friendsCount Int @default(0) 
+  likesReceivedCount Int @default(0) 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Friend {
   id Int @id @default(autoincrement())
-  userId1 String
-  user1 User @relation("UserFriends1", fields: [userId1], references: [id], onDelete: Cascade)
-  userId2 String
-  user2 User @relation("UserFriends2", fields: [userId2], references: [id], onDelete: Cascade)
+  user1Id String
+  user1 User @relation("UserFriends1", fields: [user1Id], references: [id], onDelete: Cascade)
+  user2Id String
+  user2 User @relation("UserFriends2", fields: [user2Id], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
 }
 
@@ -50,13 +56,12 @@ model FriendRequest {
   sender User @relation("RequestsSent", fields: [senderId], references: [id], onDelete: Cascade)
   receiverId String
   receiver User @relation("RequestsReceived", fields: [receiverId], references: [id], onDelete: Cascade)
-  status RequestStatus
+  status FriendRequestStatus @default(PENDING)
 }
 
-enum RequestStatus {
-  PENDING
+enum FriendRequestStatus {
   ACCEPTED
-  REJECTED
+  PENDING
 }
 
 model Post {
@@ -67,6 +72,7 @@ model Post {
   author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
   comments Comment[]
   likes Like[]
+  bookmarks Bookmark[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -78,6 +84,7 @@ model Comment {
   author User @relation(fields: [authorId], references: [id], onDelete: Cascade)
   postId Int
   post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  isEdited Boolean @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -91,10 +98,23 @@ model Like {
   createdAt DateTime @default(now())
 }
 
-model Notification {
+model Bookmark {
   id Int @id @default(autoincrement())
   userId String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  postId Int
+  post Post @relation(fields: [postId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model Notification {
+  id Int @id @default(autoincrement())
+  senderId String
+  sender User @relation("NotificationsSent", fields: [senderId], references: [id], onDelete: Cascade)
+  receiverId String
+  receiver User @relation("NotificationsReceived", fields: [receiverId], references: [id], onDelete: Cascade)
+  postId Int?
+  friendRequestId Int?
   message String
   type NotificationType
   read Boolean @default(false)
@@ -102,7 +122,30 @@ model Notification {
 }
 
 enum NotificationType {
+  FRIENDS
   FRIEND_REQUEST
   LIKE
   COMMENT
+  SAVE
+}
+
+model Conversation {
+  id Int @id @default(autoincrement())
+  participants User[] @relation("ConversationParticipants")
+  messages Message[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Message {
+  id Int @id @default(autoincrement())
+  text String?
+  image String?
+  senderId String
+  sender User @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  conversationId Int
+  conversation Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  read Boolean @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

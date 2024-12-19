@@ -1,52 +1,79 @@
-import { User, Cake, CalendarDays, MapPin, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
+
+import { User, Cake, CalendarDays, MapPin } from "lucide-react";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
+import { Skeleton } from "./ui/skeleton";
 
-const UserInformationCard = () => {
+import { User as UserType } from "@/types/user";
+
+const UserInformationCard = ({
+  userData,
+  isUserDataLoading,
+}: {
+  userData: UserType;
+  isUserDataLoading: boolean;
+}) => {
+  const formatDate = (isoDate: string): string => {
+    const date = new Date(isoDate);
+    const month = new Intl.DateTimeFormat("en-US", { month: "long" }).format(
+      date
+    );
+    const day = date.getUTCDate();
+    const year = date.getUTCFullYear();
+    return `${month} ${day}, ${year}`;
+  };
   return (
     <div className="p-4 border rounded-lg shadow-lg space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-sm">User Information</h2>
-        <Button className="h-0 w-0 p-[10px]">
-          <User />
-        </Button>
+        <Link to={`/${userData.username}`} className="flex">
+          <Button className="h-0 w-0 p-[10px]">
+            <User />
+          </Button>
+        </Link>
       </div>
-      <div>
-        <p className="text-sm font-semibold">@ishmimi</p>
-        <p className="text-xs">
-          Hello I'm a new User 👋 Hello I'm a new User 👋 Hello I'm a new User
-          👋 Hello I'm a new User 👋 Hello I'm a new User 👋 Hello I'm a new
-          User 👋
-        </p>
-      </div>
-      <Separator />
-      <div className="space-y-2">
-        <div className="flex items-center gap-1">
-          <MapPin size={16} />
-          <p className="text-sm">
-            Living in <span className="font-medium">Philippines</span>
-          </p>
+      {isUserDataLoading ? (
+        <div className="space-y-4">
+          <Skeleton className="h-24" />
+          <Skeleton className="h-4" />
         </div>
-        <div className="flex items-center gap-1">
-          <Cake size={16} />
-          <p className="text-sm">
-            Born <span className="font-medium">April 28, 2001</span>
-          </p>
-        </div>
-        <div className="flex items-center gap-1">
-          <CalendarDays size={16} />
-          <p className="text-sm">
-            Joined <span className="font-medium">November 2024</span>
-          </p>
-        </div>
-      </div>
-      <div className="flex flex-col gap-4">
-        <Separator />
-        <Button className="w-full">
-          <Settings />
-          <p>Edit Profile</p>
-        </Button>
-      </div>
+      ) : (
+        <>
+          <div>
+            <p className="text-sm font-semibold">@{userData.username}</p>
+            <p className="text-xs">{userData.bio}</p>
+          </div>
+          <Separator />
+          <div className="space-y-2">
+            <div className="flex items-center gap-1">
+              <MapPin size={16} />
+              <p className="text-sm">
+                Living in{" "}
+                <span className="font-medium">{userData.country}</span>
+              </p>
+            </div>
+            <div className="flex items-center gap-1">
+              <Cake size={16} />
+              <p className="text-sm">
+                Born{" "}
+                <span className="font-medium">
+                  {formatDate(userData.birthday.toLocaleString())}
+                </span>
+              </p>
+            </div>
+            <div className="flex items-center gap-1">
+              <CalendarDays size={16} />
+              <p className="text-sm">
+                Joined{" "}
+                <span className="font-medium">
+                  {formatDate(userData.createdAt.toLocaleString())}
+                </span>
+              </p>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

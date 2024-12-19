@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 
-import prisma from "../config/db";
+import prisma from "../config/db.js";
 import generateToken from "../services/auth.service.js";
 
 const register = async (req, res) => {
@@ -31,7 +31,7 @@ const register = async (req, res) => {
 
     const existingEmail = await prisma.user.findUnique({ where: { email } });
     if (existingEmail) {
-      return res.status(400).json({ error: "Email has already been created." });
+      return res.status(400).json({ error: "Email is already registered." });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -55,7 +55,7 @@ const register = async (req, res) => {
         username: newUser.username,
         email: newUser.email,
         country: newUser.country,
-        birthday: newUser.country,
+        birthday: newUser.birthday,
       },
     });
   } catch (error) {
@@ -110,6 +110,24 @@ const getMe = async (req, res) => {
   try {
     const user = await prisma.user.findUnique({
       where: { id: req.user.id },
+      select: {
+        id: true,
+        username: true,
+        email: true,
+        bio: true,
+        avatar: true,
+        cover: true,
+        country: true,
+        birthday: true,
+        friendsCount: true,
+        likesReceivedCount: true,
+        _count: { select: { posts: true } },
+        createdAt: true,
+        friends1: true,
+        friends2: true,
+        sentRequests: true,
+        receivedRequests: true,
+      },
     });
 
     if (!user) {

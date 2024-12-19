@@ -1,7 +1,6 @@
 import AddPost from "@/components/AddPost";
-import BirthdayCard from "@/components/BirthdayCard";
+import FindUsersCard from "@/components/FindUsersCard";
 import { Calendar } from "@/components/ui/calendar";
-
 import Feed from "@/components/Feed";
 import FriendRequestsCard from "@/components/FriendRequestsCard";
 import ProfileCard from "@/components/ProfileCard";
@@ -22,8 +21,8 @@ const HomePage = () => {
         <Feed />
       </div>
       <div className="hidden md:flex flex-col w-[40%] space-y-4">
+        <FindUsersCard />
         <FriendRequestsCard />
-        <BirthdayCard />
         <YourFriendsCard />
       </div>
     </div>
