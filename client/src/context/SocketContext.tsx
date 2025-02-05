@@ -27,7 +27,7 @@ export const useSocketContext = (): ISocketContext => {
   return context;
 };
 
-const socketURL =
+const SOCKET_URL =
   import.meta.env.MODE === "development" ? "http://localhost:3000" : "/";
 
 const SocketContextProvider = ({ children }: { children: ReactNode }) => {
@@ -39,7 +39,7 @@ const SocketContextProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     if (authUser && !isAuthUserLoading) {
-      const socket = io(socketURL, {
+      const socket = io(SOCKET_URL, {
         query: {
           userId: authUser.id,
         },
